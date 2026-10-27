@@ -1,47 +1,30 @@
-# Street Kings — browser street-racing game
+# Street Kings V2
 
-A playable web game prototype with:
-- Cash, three cars, garage selection and upgrades
-- Solo reaction-time sprints and race rewards
-- Live multiplayer matchmaking using Socket.IO
-- Local save data in the browser
-- Responsive desktop/mobile layout
+A browser street-racing game with 30 cars, car search/class filters, vehicle stats, six upgrade types, paint customisation, solo sprints, Socket.IO multiplayer, local saves, and a protected owner mode.
 
-## Run it on your computer
+## Deploy on Render
 
-You need Node.js 18 or newer. Download it from https://nodejs.org/.
-
-1. Unzip the `street-kings.zip` file.
-2. Open the `street-kings` folder.
-3. In that folder, open a terminal / Command Prompt.
-4. Run:
-
-   ```bash
-   npm install
-   npm start
-   ```
-
-5. Open http://localhost:3000 in your browser.
-
-Keep the terminal running while you play. Multiplayer works between browsers/devices connected to the same running server.
-
-## Deploy it online with Render
-
-1. Create a GitHub account if you don't have one, then create a new repository named `street-kings`.
-2. Upload the contents of this folder to the repository (make sure `package.json` and `server.js` are at the repository root).
-3. Sign in to https://render.com/ and create a **New Web Service** connected to that repository.
-4. Use these settings:
+1. Upload the **contents** of this folder to the top level of your GitHub repository (so `server.js`, `package.json`, and `public/` are visible together).
+2. In Render, create or update a **Web Service** connected to that repository.
+3. Use:
    - **Runtime:** Node
    - **Build command:** `npm install`
    - **Start command:** `npm start`
-   - **Instance type:** Free, if available for your account
-5. Click **Deploy**. Open the `onrender.com` URL Render provides.
+   - **Root directory:** leave blank when the files are at repository top level
+   - **Instance:** Free is okay for testing
+4. In Render, open the service's **Environment** settings and add:
+   - **Key:** `OWNER_PASSWORD`
+   - **Value:** a strong, private password you choose (at least 16 characters is recommended)
+5. Save the environment variable. Render will redeploy the service. When the deployment says **Live**, open the service URL.
 
-Other hosts that support long-lived Node.js web services and WebSockets can also run this project.
+## Owner Mode
 
-## Important notes
+Click **OWNER LOGIN** in the game and enter the same password you saved as `OWNER_PASSWORD` in Render. Owner Mode provides unlimited in-game cash while active and unlocks the complete car collection. The Owner Control Room also includes buttons to unlock all cars/max all upgrades on the local save, add $10,000,000, or restore the starter save.
 
-- Game progress is saved in `localStorage` on the player's device. Clearing browser data or switching devices resets that local save.
-- Multiplayer matchmaking requires the deployed server to be running. To test with two players, open the game URL in two browsers or on two devices.
-- This is a starter prototype, not a cheat-resistant commercial game. Cash and upgrades are stored client-side and can be edited by a player in their own browser. Multiplayer results are calculated by the server, but the server does not yet have accounts, a persistent database, anti-cheat validation, moderation, or a global leaderboard.
-- Don't put passwords, API keys, or private credentials in the public repository.
+Owner authentication is checked by the server. Do not share the owner password. The game prototype saves normal player progress in the browser's local storage, so normal progress is device/browser-specific.
+
+## Notes
+
+- Free Render web services can sleep after inactivity; the first visit after a quiet period may take a little longer.
+- Multiplayer requires at least two people online at the same time and waiting in the queue.
+- Car names and specifications are fictionalised game data for gameplay balance; the game is a fan-made prototype, not an official product.
