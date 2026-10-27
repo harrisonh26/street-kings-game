@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0b0d12">
+  <title>Street Kings — Underground Racing</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark">SK</span><div><b>STREET KINGS</b><small>UNDERGROUND RACING</small></div></div>
+    <div class="top-stats"><div><small>CASH</small><strong id="cash">$1,000</strong></div><div><small>REPUTATION</small><strong id="rep">Rookie</strong></div><div class="online"><i></i><span id="online">Connecting…</span></div></div>
+  </header>
+  <main>
+    <section class="hero panel">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="pulse"></span> THE STREETS ARE CALLING</div>
+        <h1>BUILD IT.<br><em>RACE IT.</em><br>OWN THE NIGHT.</h1>
+        <p>Start with a basic ride. Tune your setup, take on rivals, and climb the underground leaderboard.</p>
+        <div class="hero-actions"><button class="btn primary" id="quickRace">FIND A RACE <span>↗</span></button><button class="btn ghost" id="soloRace">SOLO RUN <span>→</span></button></div>
+        <div class="hero-note">LIVE MULTIPLAYER · GARAGE UPGRADES · LOCAL SAVE</div>
+      </div>
+      <div class="hero-car-wrap">
+        <div class="track-lines"></div><div class="hero-glow"></div>
+        <div class="car-illustration" id="heroCar"><div class="car-roof"></div><div class="car-body"></div><div class="car-window"></div><div class="car-wheel wheel-left"></div><div class="car-wheel wheel-right"></div><div class="car-light"></div></div>
+        <div class="speed-label"><strong id="heroPower">120</strong><small>EST. HP</small></div>
+        <div class="car-caption"><span id="heroCarName">KAIRO S</span><small>YOUR CURRENT RIDE</small></div>
+      </div>
+    </section>
+    <div class="section-head"><div><div class="eyebrow">YOUR OPERATION</div><h2>THE GARAGE</h2></div><span class="muted" id="saveStatus">Progress saved on this device</span></div>
+    <section class="garage-grid">
+      <article class="panel current-car">
+        <div class="card-top"><span class="tag">CURRENT RIDE</span><span class="muted" id="carTier">TIER 1</span></div>
+        <div class="mini-car" id="miniCar"><div class="mini-roof"></div><div class="mini-body"></div><div class="mini-window"></div><div class="mini-wheel a"></div><div class="mini-wheel b"></div></div>
+        <h3 id="currentCarName">Kairo S</h3><p class="muted" id="currentCarDesc">A lightweight street starter.</p>
+        <div class="stats"><div><small>POWER</small><b id="powerStat">120 HP</b></div><div><small>GRIP</small><b id="gripStat">54</b></div><div><small>0–60</small><b id="accelStat">5.8s</b></div></div>
+        <button class="btn primary full" id="upgradeBtn">UPGRADE ENGINE — $750</button>
+      </article>
+      <article class="panel cars-panel">
+        <div class="card-top"><div><div class="eyebrow">EXPAND THE FLEET</div><h3>CAR MARKET</h3></div><span class="muted">3 rides available</span></div>
+        <div id="carMarket" class="car-market"></div>
+      </article>
+    </section>
+    <section class="lower-grid">
+      <article class="panel race-panel">
+        <div class="eyebrow">PROVE YOUR BUILD</div><h2>RACE CONTROL</h2>
+        <p class="muted">Challenge another player online, or run a solo sprint against the clock.</p>
+        <div class="race-status" id="raceStatus"><span class="status-dot"></span><span>Ready to race. Pick your lane.</span></div>
+        <div class="race-lanes" id="raceLanes"><div class="lane"><span>YOU</span><div class="lane-track"><div class="lane-car player-lane-car">▰</div></div><b id="yourLaneTime">—</b></div><div class="lane"><span>RIVAL</span><div class="lane-track"><div class="lane-car rival-lane-car">▰</div></div><b id="rivalLaneTime">—</b></div></div>
+        <div class="race-actions"><button class="btn primary" id="onlineRace">ONLINE MATCH</button><button class="btn ghost" id="soloRun">SOLO SPRINT</button><button class="btn ghost hidden" id="cancelQueue">CANCEL</button></div>
+        <div class="reaction-wrap hidden" id="reactionWrap"><p>Wait for green, then hit LAUNCH as fast as you can.</p><div class="start-light" id="startLight">READY</div><button class="btn primary full" id="launchBtn" disabled>LAUNCH</button></div>
+      </article>
+      <article class="panel upgrades-panel">
+        <div class="eyebrow">FINE-TUNE YOUR MACHINE</div><h2>UPGRADE SHOP</h2>
+        <div class="upgrade-row"><div class="upgrade-icon">⚙</div><div class="upgrade-info"><b>Engine tune</b><small>More power, better race odds</small></div><strong id="engineLevel">Lv. 1</strong><button class="buy-upgrade" data-upgrade="engine" aria-label="Upgrade engine">+</button></div>
+        <div class="upgrade-row"><div class="upgrade-icon">◉</div><div class="upgrade-info"><b>Performance tyres</b><small>More grip off the line</small></div><strong id="tyreLevel">Lv. 1</strong><button class="buy-upgrade" data-upgrade="tyres" aria-label="Upgrade tyres">+</button></div>
+        <div class="upgrade-row"><div class="upgrade-icon">↯</div><div class="upgrade-info"><b>Nitrous kit</b><small>Extra punch in a sprint</small></div><strong id="nitroLevel">Lv. 0</strong><button class="buy-upgrade" data-upgrade="nitro" aria-label="Upgrade nitrous">+</button></div>
+        <div class="garage-tip"><b>TIP FROM THE CREW</b><p>Winning races is the fastest way to build your cash. Better rides and upgrades improve your odds.</p></div>
+      </article>
+    </section>
+    <section class="panel activity-panel"><div class="section-head compact"><div><div class="eyebrow">YOUR TRACK RECORD</div><h2>RECENT RESULTS</h2></div><button class="btn ghost small" id="resetGame">RESET SAVE</button></div><div id="history" class="history"><div class="empty-history">Your race history will show up here.</div></div></section>
+    <footer>STREET KINGS <span>·</span> A fan-made racing game prototype. No real-money purchases.</footer>
+  </main>
+  <div class="toast" id="toast" role="status"></div>
+  <div class="modal hidden" id="modal"><div class="modal-card"><button class="modal-close" id="modalClose" aria-label="Close">×</button><div class="eyebrow">RACE REPORT</div><h2 id="modalTitle">RACE COMPLETE</h2><p id="modalText"></p><button class="btn primary full" id="modalOk">BACK TO GARAGE</button></div></div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/game.js"></script>
+</body>
+</html>
